@@ -74,7 +74,9 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
-  config.web_socket_server_url = "https://dry-atoll-24444.herokuapp.com/"
+  config.action_cable.url = 'wss://dry-atoll-24444.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = [
+      'https://dry-atoll-24444.herokuapp.com', 'http://dry-atoll-24444.herokuapp.com']
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
